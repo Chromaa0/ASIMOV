@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Login</title>
+    <style>
+
+        @font-face {
+            font-family: 'VCR_OSD_MONO';
+            src: url('VCR_OSD_MONO_1.1001.ttf') format('truetype'); 
+        }
+
+       
+        body {
+            font-family: 'VCR_OSD_MONO', sans-serif; 
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        
+        h2 {
+            font-family: 'VCR_OSD_MONO', sans-serif; 
+            color: #ffffff;
+            text-align: center;
+        }
+
+        
+        .login-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; 
+        }
+
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            max-width: 260px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+
+    
+        button {
+            width: 100%;
+            max-width: 310px;
+            padding: 10px;
+            font-size: 16px;
+            color: #000000;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6e6e6e;
+        }
+
+        
+        footer {
+            width: 100%; 
+            text-align: center; 
+            color: #ffffff;
+            font-size: 14px;
+            position: absolute; 
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            padding: 10px 0;
+        }
+        h6 {
+            font-size: 5px;
+            color: #0c0c0c;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="AsimovPNG.png" alt="Logo" style="display: block; margin: 0 auto; width: 200px; height: auto;">
+        <h2>ADMINISTRATOR LOGIN</h2>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="NAME" required>
+            <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+            <button type="submit">LOGIN</button>
+        </form>
+        <p id="errorMessage" style="color: red; display: none;">Invalid username or password!</p>
+    </div>
+    <footer>
+        <p>&copy; 2003. Asimov Corp.</p>
+        <p>All rights reserved.</p>
+        <h6>YOU ARE NOT RUNNING ANYWHERE.</h6>
+
+    </footer>
+    <script>
+ 
+        const correctUsername = "Clarke Petrov";
+        const correctPassword = "Asimov2003";
+
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === correctUsername && password === correctPassword) {
+            
+                window.location.href = "Home.html";
+            } else {
+                const errorMessage = document.getElementById("errorMessage");
+                errorMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
